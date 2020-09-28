@@ -6,8 +6,6 @@ on:
         description: "data"
         required: true
         default: {}
-  push:
-    branches: master
 jobs:
   create-file:
     runs-on: ubuntu-latest
