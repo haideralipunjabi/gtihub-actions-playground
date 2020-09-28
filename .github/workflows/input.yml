@@ -1,17 +1,17 @@
 name: Input-Test
 on:
-  workflow_dispatch:
-    inputs:
-      data:
-        description: 'data'
-        required: true
-        default: {}
-  push:
-    inputs:
-      data:
-        description: 'data'
-        required: true
-        default: {"test":"push"}
+  - push:
+      inputs:
+        data:
+          description: "data"
+          required: true
+          default: { "test": "push" }
+  - workflow_dispatch:
+      inputs:
+        data:
+          description: "data"
+          required: true
+          default: {}
 
 jobs:
   create-file:
@@ -24,7 +24,6 @@ jobs:
         with:
           python-version: 3.8
       - name: execute
-        run:  run.py ${{ github.event.inputs.data }}
+        run: run.py ${{ github.event.inputs.data }}
       - name: Create PR
         uses: peter-evans/create-pull-request@v3
-
