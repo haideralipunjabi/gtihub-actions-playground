@@ -1,17 +1,14 @@
 name: Input-Test
 on:
-  - push:
-      inputs:
-        data:
-          description: "data"
-          required: true
-          default: { "test": "push" }
-  - workflow_dispatch:
-      inputs:
-        data:
-          description: "data"
-          required: true
-          default: {}
+  push:
+    branches:
+      - master
+  workflow_dispatch:
+    inputs:
+      data:
+        description: "data"
+        required: true
+        default: {}
 
 jobs:
   create-file:
