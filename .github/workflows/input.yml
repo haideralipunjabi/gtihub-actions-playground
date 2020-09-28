@@ -1,14 +1,5 @@
 name: Input
-on:
-  push:
-    branches:
-      - master
-  workflow_dispatch:
-    inputs:
-      data:
-        description: "data"
-        required: true
-        default: {}
+on: push
 jobs:
   create-file:
     runs-on: ubuntu-latest
