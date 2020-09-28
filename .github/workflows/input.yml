@@ -22,3 +22,5 @@ jobs:
         run: python run.py
       - name: Create PR
         uses: peter-evans/create-pull-request@v3
+        with:
+          branch-suffix: short-commit-hash
