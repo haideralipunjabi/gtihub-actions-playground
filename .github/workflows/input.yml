@@ -2,7 +2,7 @@ name: Input
 on: 
   workflow_dispatch:
     inputs:
-      data:
+      workflow_data:
         description: "data"
         required: true
         default: ""
