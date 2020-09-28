@@ -6,6 +6,10 @@ on:
         description: "data"
         required: true
         default: ""
+      username:
+        description: "username"
+        required: true
+        default: ""
 jobs:
   create-file:
     runs-on: ubuntu-latest
