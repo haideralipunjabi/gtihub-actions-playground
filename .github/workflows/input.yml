@@ -1,5 +1,11 @@
 name: Input
-on: workflow_dispatch
+on: 
+  workflow_dispatch:
+    inputs:
+      data:
+        description: "data"
+        required: true
+        default: ""
 jobs:
   create-file:
     runs-on: ubuntu-latest
@@ -11,6 +17,6 @@ jobs:
         with:
           python-version: 3.8
       - name: execute
-        run: run.py ${{ github.event.inputs.data }}
+        run: python run.py ${{ github.event.inputs.data }}
       - name: Create PR
         uses: peter-evans/create-pull-request@v3
