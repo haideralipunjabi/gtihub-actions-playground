@@ -1,11 +1,5 @@
 name: Input
-on:
-  workflow_dispatch:
-    inputs:
-      data:
-        description: "data"
-        required: true
-        default: {}
+on: [push,workflow_dispatch]
 jobs:
   create-file:
     runs-on: ubuntu-latest
