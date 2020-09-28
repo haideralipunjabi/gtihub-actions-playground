@@ -6,6 +6,13 @@ on:
         description: 'data'
         required: true
         default: {}
+  push:
+    inputs:
+      data:
+        description: 'data'
+        required: true
+        default: {"test":"push"}
+
 jobs:
   create-file:
     runs-on: ubuntu-latest
