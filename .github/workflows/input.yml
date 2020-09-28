@@ -1,4 +1,4 @@
-name: Input-Test
+name: Input
 on:
   push:
     branches:
@@ -9,7 +9,6 @@ on:
         description: "data"
         required: true
         default: {}
-
 jobs:
   create-file:
     runs-on: ubuntu-latest
