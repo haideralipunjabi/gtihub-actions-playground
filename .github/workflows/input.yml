@@ -23,4 +23,6 @@ jobs:
       - name: Create PR
         uses: peter-evans/create-pull-request@v3
         with:
-          branch-suffix: short-commit-hash
+          branch-suffix: "random"
+          branch: "dev-${{ github.event.inputs.username }}"
+          title: "Dev: ${{ github.event.inputs.username }}"
