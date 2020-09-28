@@ -16,7 +16,9 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: 3.8
+      - name: set env
+        run: echo "::set-env name=workflow_data::${{ github.event.inputs.workflow_data }}"
       - name: execute
-        run: python run.py ${{ github.event.inputs.data }}
+        run: python run.py
       - name: Create PR
         uses: peter-evans/create-pull-request@v3
