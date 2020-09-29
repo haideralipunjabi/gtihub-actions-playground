@@ -17,6 +17,7 @@ function download(url, path) {
 }
 
 async function createFile(data) {
+  console.log(data);
   let username = data.name.toLowerCase().replace(/ /g, "");
   let downloadPromises = []
   if (Object.keys(data).includes("profilepicture")) {
