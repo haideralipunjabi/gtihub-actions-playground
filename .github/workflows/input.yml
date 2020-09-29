@@ -15,6 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       workflow_data: ${{ github.event.inputs.workflow_data }}
+      workspace: ${{ github.workspace }}
     steps:
       - name: checkout repo content
         uses: actions/checkout@v2
@@ -22,8 +23,9 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: '12.x'
+      - run: cd .github/workflows/
       - run: npm install
-      - run: node .github/workflows/create-mdx
+      - run: node create-mdx
       - name: Create PR
         uses: peter-evans/create-pull-request@v3
         with:
