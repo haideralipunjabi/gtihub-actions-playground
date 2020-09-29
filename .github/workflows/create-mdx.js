@@ -62,7 +62,7 @@ const Questions = [
   "One thing that you want to plug about yourself or someone else.",
 ];
 
-const data = process.env.workflow_data;
+const data = JSON.parse(process.env.workflow_data);
 
 let questions = [];
 Questions.forEach((q, i) => {
