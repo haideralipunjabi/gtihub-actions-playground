@@ -23,7 +23,7 @@ jobs:
         with:
           node-version: '12.x'
       - run: npm install
-      - run: npm create-mdx
+      - run: node create-mdx
       - name: Create PR
         uses: peter-evans/create-pull-request@v3
         with:

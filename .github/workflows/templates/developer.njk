@@ -1,0 +1,30 @@
+---
+name: "{{ data.name }}"
+{% if data.image_profile_pic -%}
+image: "{{ data.image_profile_pic }}"
+{% endif -%}
+{% if data.image_workspace_pic -%}
+workspace_image: "{{ data.image_workspace_pic }}"
+{% endif -%}
+address: "{{ data.address }}"
+{% if data.tags -%}
+tags: {{ data.tags | dump | safe }}
+{% endif %}
+{%- if data.description -%}
+description: "{{ data.description }}"
+{% endif %}
+{%- if data.socialmedialinks -%}
+links:
+{%- for name,url in data.socialmedialinks %}
+  - name: "{{ name }}"
+    url: "{{ url }}"
+{%- endfor -%}
+{%- endif %}
+layout: developer
+---
+{% for item in data.questions -%}
+## {{ item.question }}
+
+{{ item.response }}
+
+{% endfor -%}
