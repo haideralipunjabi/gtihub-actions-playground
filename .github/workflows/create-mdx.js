@@ -1,1 +1,1 @@
-console.log("TEST");
+console.log(process.env.workflow_data);
