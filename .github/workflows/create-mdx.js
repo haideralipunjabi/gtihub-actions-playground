@@ -2,7 +2,7 @@ const nunjucks = require("nunjucks");
 const fs = require("fs");
 const { extension } = require("mime-types");
 const axios = require('axios');
-const workspace = process.env.github.workspace;
+const workspace = process.env.workspace;
 function download(url, path) {
     return axios({
       url,
@@ -37,7 +37,7 @@ async function createFile(data) {
   }
 
   Promise.all(downloadPromises).then(()=>{
-    nunjucks.configure("templates");
+    nunjucks.configure(`${workspace}/.github/workflows/templates`);
 
     let res = nunjucks.render("developer.njk", { data: data });
     fs.writeFile(`${workspace}/pages/devs/${username}.mdx`, res, (err) => {
