@@ -2,7 +2,7 @@ const nunjucks = require("nunjucks");
 const fs = require("fs");
 const { extension } = require("mime-types");
 const axios = require('axios');
-
+const workspace = process.env.github.workspace;
 function download(url, path) {
     return axios({
       url,
@@ -22,7 +22,7 @@ async function createFile(data) {
   if (Object.keys(data).includes("profilepicture")) {
     downloadPromises.push(await download(
       data.profilepicture,
-      `../../public/images/devs/${username}`,
+      `${workspace}/public/images/devs/${username}`,
     ).then(ext=>{
         data.image_profile_pic = `${username}.${ext}`;
     }));
@@ -30,7 +30,7 @@ async function createFile(data) {
   if (Object.keys(data).includes("workspacepicture")) {
     downloadPromises.push(await download(
       data.workspacepicture,
-      `../../public/images/workspace/${username}`
+      `${workspace}/public/images/workspace/${username}`
     ).then(ext=>{
       data.image_workspace_pic = `${username}.${ext}`;
   }));
@@ -40,7 +40,7 @@ async function createFile(data) {
     nunjucks.configure("templates");
 
     let res = nunjucks.render("developer.njk", { data: data });
-    fs.writeFile(`../../pages/devs/${username}.mdx`, res, (err) => {
+    fs.writeFile(`${workspace}/pages/devs/${username}.mdx`, res, (err) => {
       if (err) return console.log(err);
     });
   })
