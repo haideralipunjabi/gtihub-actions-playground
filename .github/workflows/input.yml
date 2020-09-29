@@ -18,12 +18,12 @@ jobs:
     steps:
       - name: checkout repo content
         uses: actions/checkout@v2
-      - name: setup python
-        uses: actions/setup-python@v2
+      - name: Setup Node
+        uses: actions/setup-node@v1
         with:
-          python-version: 3.8
-      - name: execute
-        run: python run.py
+          node-version: '12.x'
+      - run: npm install
+      - run: npm create-mdx
       - name: Create PR
         uses: peter-evans/create-pull-request@v3
         with:
