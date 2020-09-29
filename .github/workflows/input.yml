@@ -23,9 +23,10 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: '12.x'
-      - run: cd .github/workflows/
       - run: npm install
+        working-directory: ./.github/workflows/
       - run: node create-mdx
+        working-directory: ./.github/workflows/
       - name: Create PR
         uses: peter-evans/create-pull-request@v3
         with:
