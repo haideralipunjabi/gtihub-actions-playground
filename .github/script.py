@@ -24,7 +24,7 @@ cookies = r.cookies.get_dict()
 
 requests.post(auth_url,auth_data,cookies=cookies)
 r = requests.get(data_url+s_code,cookies=cookies)
-rows = soup(r.text,features="lxml").select("tr")[1:]
+rows = soup(r.text).select("tr")[1:]
 out = {}
 for row in rows:
     cols = row.select("td")
