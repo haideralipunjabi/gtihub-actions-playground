@@ -7,7 +7,7 @@ data_url = "http://prereg.iium.edu.my/available.php?&s_code="
 chat_id = os.environ["CHAT_ID"]
 telegram_api = "https://api.telegram.org/bot%s/sendMessage?chat_id=%s&text=%s"
 
-telegram_token = os.environ["TOKEN]
+telegram_token = os.environ["TOKEN"]
 
 s_code = "TQB 2001E"
 
